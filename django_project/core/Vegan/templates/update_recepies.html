@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update recipes</title>
+    <!-- Add any CSS styles or external CSS links here -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-0hmd+a0+dfJZ4b9uwS2SbFwQ9kzWCgC3EhsAGL42+iy8U8lP4M/5YIa7+GpuQZdhks1kkgZW3d55w9uOkKm2kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container mt-5 card p-2 shadow-lg">
+      <form class="col-6 mx-auto" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>{{title}}</h1>
+        <hr />
+        <div class="form-group">
+          <label for="exampleRecepieName">recipe Name</label>
+          <input
+            name="recipe_name"
+            type="text"
+            class="form-control"
+            id="exampleRecepieName"
+            aria-describedby="emailHelp"
+            placeholder="Enter recipe name"
+            required
+            value="{{recipes.recipe_name}}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="examplerecipedescr">recipe Description</label>
+          <textarea
+            name="recipe_desc"
+            type="text"
+            class="form-control"
+            id="examplerecipedescr"
+            placeholder="recipe Description"
+            required
+          >
+{{recipes.recipe_desc}}</textarea
+          >
+        </div>
+        <div class="form-group">
+          <label for="examplerecipeimage">recipe Image</label>
+          <input
+            name="recipe_image"
+            type="file"
+            class="form-control"
+            id="examplerecipeimage"
+            placeholder="recipe Image"
+            required
+            src="{{recipes.recipe_image}}"
+          />
+        </div>
+        <button type="submit" class="btn btn-success">Update Recipe</button>
+      </form>
+    </div>
+    <hr />
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
